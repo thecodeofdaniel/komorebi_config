@@ -1,4 +1,4 @@
 @echo off
-echo Running powershell script...
-powershell -ExecutionPolicy Bypass -File "C:\Users\%USERNAME%\Desktop\ps_script.ps1"
+echo Running PowerShell script...
+powershell -ExecutionPolicy Bypass -File "%~dp0komorebi_powershell.ps1"
 pause
