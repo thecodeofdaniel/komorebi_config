@@ -1,4 +1,4 @@
-$processes = @("komorebi", "komorebi-bar")
+$processes = @("whkd", "komorebi-bar", "komorebi")
 
 # Ask the user what they want to do (start or kill) before processing
 $action = Read-Host "Do you want to (start/kill) the processes? (start/kill)"
