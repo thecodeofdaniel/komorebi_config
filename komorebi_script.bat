@@ -1,4 +1,3 @@
 @echo off
 echo Running PowerShell script...
 powershell -ExecutionPolicy Bypass -File "%~dp0komorebi_powershell.ps1"
-pause

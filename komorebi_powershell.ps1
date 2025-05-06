@@ -1,30 +1,46 @@
 $processes = @("whkd", "komorebi-bar", "komorebi")
 
-# Ask the user what they want to do (start or kill) before processing
-$action = Read-Host "Do you want to (start/kill) the processes? (start/kill)"
-
-foreach ($name in $processes) {
-    if ($action -eq "kill") {
-        $proc = Get-Process -Name $name -ErrorAction SilentlyContinue
+function _kill-komorebi {
+    foreach ($process in $processes) {
+        $proc = Get-Process -Name $process -ErrorAction SilentlyContinue
         if ($proc) {
-            Stop-Process -Name $name -Force
-            Write-Output "$name has been killed."
+            Stop-Process -Name $process -Force
+            Write-Output "$process has been killed."
         } else {
-            Write-Output "$name is not running."
+            Write-Output "$process is not running."
         }
-
-    } elseif ($action -eq "start") {
-        $proc = Get-Process -Name $name -ErrorAction SilentlyContinue
-        if ($proc) {
-            Write-Output "$processes is already running."
-        } else {
-            Write-Output "Starting $processes..."
-            Start-Process "komorebic" -ArgumentList "start --whkd --bar"
-            Write-Output "$processes has been started!"
-        }
-        break
-    } else {
-        Write-Output "Invalid option entered. Please choose 'start' or 'kill'."
-        break
     }
 }
+
+function _start-komorebi {
+    foreach ($process in $processes) {
+        $proc = Get-Process -Name $process -ErrorAction SilentlyContinue
+        if ($proc) {
+            Write-Output "Komorebi is already running."
+            return
+        }
+    }
+
+    Write-Output "Starting $processes..."
+    Start-Process "komorebic" -ArgumentList "start --whkd --bar"
+    Write-Output "$processes has been started!"
+}
+
+function _main {
+    # Ask the user what they want to do (start or kill) before processing
+    $action = Read-Host "Do you want to (start/kill/exit) the processes?"
+
+    if ($action -eq "kill") {
+        _kill-komorebi
+    } elseif ($action -eq "start") {
+        _start-komorebi
+    } elseif ($action -eq "exit") {
+        return
+    } else {
+        Write-Output "Invalid option entered."
+    }
+
+    _main
+}
+
+_main
