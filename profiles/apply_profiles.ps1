@@ -48,7 +48,7 @@ function Apply-Profile {
             Write-Host "Applied komorebi.json to $destinationPath"
             $appliedFiles++
         }
-        
+
         # Apply all komorebi.bar.* files
         $barFiles = Get-ChildItem -Path $sourcePath -Filter "komorebi.bar.*" -File
         if ($barFiles) {
@@ -58,10 +58,10 @@ function Apply-Profile {
                 $appliedFiles++
             }
         }
-        
+
         if ($appliedFiles -gt 0) {
             Write-Host "`n$profileName profile successfully applied to computer!"
-            
+
             # Ask if user wants to restart komorebi
             $restart = Read-Host "`nDo you want to restart komorebi to apply changes? (y/n)"
             if ($restart -eq "y") {
@@ -98,4 +98,4 @@ function Main {
 }
 
 # Run the main function
-Main 
+Main
