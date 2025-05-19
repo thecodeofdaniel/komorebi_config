@@ -30,11 +30,11 @@ function _main {
     # Ask the user what they want to do (start or kill) before processing
     $action = Read-Host "Do you want to (start/kill/exit) the processes?"
 
-    if ($action -eq "kill") {
-        _kill-komorebi
-    } elseif ($action -eq "start") {
+    if ($action -eq "start" -or $action -eq "s") {
         _start-komorebi
-    } elseif ($action -eq "exit") {
+    } elseif ($action -eq "kill" -or $action -eq "k") {
+        _kill-komorebi
+    } elseif ($action -eq "exit" -or $action -eq "x") {
         return
     } else {
         Write-Output "Invalid option entered."
