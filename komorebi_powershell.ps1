@@ -1,15 +1,9 @@
 $processes = @("whkd", "komorebi-bar", "komorebi")
 
 function _kill-komorebi {
-    foreach ($process in $processes) {
-        $proc = Get-Process -Name $process -ErrorAction SilentlyContinue
-        if ($proc) {
-            Stop-Process -Name $process -Force
-            Write-Output "$process has been killed."
-        } else {
-            Write-Output "$process is not running."
-        }
-    }
+    Write-Output "Killing Komorebi processes..."
+    Start-Process "komorebic" -ArgumentList "stop --whkd --bar"
+    Write-Output "Komorebi has been killed"
 }
 
 function _start-komorebi {
