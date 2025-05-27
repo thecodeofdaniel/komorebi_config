@@ -10,7 +10,7 @@ foreach ($folder in $profileFolders) {
     $index++
 }
 
-function Show-Profiles {
+function _Show-Profiles {
     Write-Host "`nAvailable Profiles:"
     Write-Host "----------------"
     foreach ($key in $profiles.Keys) {
@@ -19,7 +19,7 @@ function Show-Profiles {
     Write-Host "----------------`n"
 }
 
-function Apply-Profile {
+function _Apply-Profile {
     param (
         [string]$profileKey
     )
@@ -59,18 +59,16 @@ function Apply-Profile {
             }
         }
 
+        # Apply whkdrc file
+        $whkdrcFile = Join-Path $PSScriptRoot "whkdrc"
+        if (Test-Path $whkdrcFile) {
+            $whkdrcDestPath = "$env:USERPROFILE\.config"
+            Copy-Item -Path $whkdrcFile -Destination "$env:USERPROFILE\.config"
+            Write-Host "Applied whkdrc file to $whkdrcDestPath"
+        }
+
         if ($appliedFiles -gt 0) {
             Write-Host "`n$profileName profile successfully applied to computer!"
-
-            # Ask if user wants to restart komorebi
-            $restart = Read-Host "`nDo you want to restart komorebi to apply changes? (y/n)"
-            if ($restart -eq "y") {
-                Write-Host "Restarting komorebi..."
-                # Kill komorebi process if running
-                Get-Process -Name "komorebi" -ErrorAction SilentlyContinue | Stop-Process
-                # Start komorebi
-                Start-Process "komorebi" -ArgumentList "start" -NoNewWindow
-            }
         } else {
             Write-Host "`nNo files found in the profile to apply!"
         }
@@ -88,13 +86,13 @@ function Main {
     }
 
     # Show available profiles
-    Show-Profiles
+    _Show-Profiles
 
     # Get profile selection
-    $profileSelection = Read-Host "Select profile to apply (1-$($profiles.Count))"
+    $profileSelection = Read-Host "Which profile do you to apply to this computer? [1-$($profiles.Count)]"
 
     # Apply selected profile
-    Apply-Profile -profileKey $profileSelection
+    _Apply-Profile -profileKey $profileSelection
 }
 
 # Run the main function

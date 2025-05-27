@@ -10,7 +10,7 @@ foreach ($folder in $profileFolders) {
     $index++
 }
 
-function Show-Profiles {
+function _Show-Profiles {
     Write-Host "`nAvailable Profiles:"
     Write-Host "----------------"
     foreach ($key in $profiles.Keys) {
@@ -19,7 +19,7 @@ function Show-Profiles {
     Write-Host "----------------`n"
 }
 
-function Copy-ToProfile {
+function _Copy-ToProfile {
     param (
         [string]$sourcePath,
         [string]$profileKey
@@ -80,7 +80,7 @@ function Main {
     }
 
     # Show available profiles
-    Show-Profiles
+    _Show-Profiles
 
     # Use a fixed source path (user's AppData folder)
     $sourcePath = "$env:USERPROFILE"
@@ -91,10 +91,10 @@ function Main {
     }
 
     # Get profile selection
-    $profileSelection = Read-Host "Select profile number (1-$($profiles.Count))"
+    $profileSelection = Read-Host "Which profile will this be for? [1-$($profiles.Count)]"
 
-    # Copy files to selected profile
-    Copy-ToProfile -sourcePath $sourcePath -profileKey $profileSelection
+    # Copy files to selected profile (Pass in source path and selected profile args)
+    _Copy-ToProfile -sourcePath $sourcePath -profileKey $profileSelection
 }
 
 # Run the main function

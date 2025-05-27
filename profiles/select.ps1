@@ -14,7 +14,7 @@ foreach ($script in $psScripts) {
     $index++
 }
 
-function Show-Scripts {
+function _Show-Scripts {
     Write-Host "`nAvailable Scripts:"
     Write-Host "----------------"
     foreach ($key in $scripts.Keys) {
@@ -31,7 +31,7 @@ function Main {
     }
 
     # Show available scripts
-    Show-Scripts
+    _Show-Scripts
 
     # Get script selection
     $scriptSelection = Read-Host "Select a script to run (1-$($scripts.Count))"
