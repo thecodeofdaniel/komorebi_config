@@ -25,7 +25,7 @@
   "mouse_follows_focus": false,
   "display_index_preferences": {
     "0": "AUS2705-5&2658466e&0&UID264",
-    "1": "AUS2707-5&2658466e&0&UID256"
+    "1": "AUS2707-5&2658466e&0&UID265"
   },
   "bar_configurations": [
     "$Env:USERPROFILE/komorebi.bar.main.json",
