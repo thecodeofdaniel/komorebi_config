@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.36/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 0,
+  "default_container_padding": 0,
+  "mouse_follows_focus": false,
+  "border": true,
+  "border_width": 4,
+  "border_offset": -1,
+  "stackbar": {
+    "height": 20,
+    "label": "Title",
+    "mode": "OnStack"
+  },
+  "floating_applications": [
+    {
+      "kind": "Exe",
+      "id": "vncviewer.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "mstsc.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "saplogon.exe"
+    },
+    {
+      "kind": "Title",
+      "matching_strategy": "Contains",
+      "id": "Internet Explorer"
+    }
+  ],
+  "theme": {
+    "palette": "Base16",
+    "name": "Ashes",
+    "unfocused_border": "Base03",
+    "bar_accent": "Base0D"
+  },
+  "display_index_preferences": {
+    "0": "CMN152E-4&c2673e4&0&UID8388688",
+    "1": "DELD0DA-4&c2673e4&0&UID12613",
+    "2": "DELD0DA-4&c2673e4&0&UID8261",
+    "3": "AUS2704-4&c2673e4&0&UID4145"
+  },
+  "bar_configurations": [
+    "$Env:USERPROFILE/komorebi.bar.json",
+    "$Env:USERPROFILE/komorebi.bar.top.json",
+    "$Env:USERPROFILE/komorebi.bar.tr.json",
+    "$Env:USERPROFILE/komorebi.bar.home_top.json"
+  ],
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "Mail",
+          "layout": "BSP"
+        },
+        {
+          "name": "osTicket",
+          "layout": "BSP"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "Teams",
+          "layout": "BSP"
+        },
+        {
+          "name": "OneNote",
+          "layout": "BSP"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "Watch",
+          "layout": "BSP"
+        }
+      ]
+    },
+     {
+      "workspaces": [
+        {
+          "name": "Teams",
+          "layout": "BSP"
+        },
+        {
+          "name": "OneNote",
+          "layout": "BSP"
+        }
+      ]
+    }
+  ]
+}
