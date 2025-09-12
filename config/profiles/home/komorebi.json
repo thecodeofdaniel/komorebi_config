@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.36/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 0,
+  "default_container_padding": 0,
+  "border": true,
+  "border_width": 4,
+  "border_offset": -1,
+  "theme": {
+    "palette": "Base16",
+    "name": "Ashes",
+    "unfocused_border": "Base03",
+    "bar_accent": "Base0D"
+  },
+  "stackbar": {
+    "height": 20,
+    "mode": "OnStack",
+    "label": "Title",
+    "tabs": {
+      "font_size": 28
+    }
+  },
+  "mouse_follows_focus": false,
+  "display_index_preferences": {
+    "0": "AUS2705-5&2658466e&0&UID264",
+    "1": "AUS2707-5&2658466e&0&UID265"
+  },
+  "bar_configurations": [
+    "$Env:USERPROFILE/komorebi.bar.main.json",
+    "$Env:USERPROFILE/komorebi.bar.side.json"
+  ],
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "1",
+          "layout": "RightMainVerticalStack"
+        },
+        {
+          "name": "2",
+          "layout": "RightMainVerticalStack"
+        },
+        {
+          "name": "3",
+          "layout": "RightMainVerticalStack"
+        },
+        {
+          "name": "4",
+          "layout": "RightMainVerticalStack"
+        },
+        {
+          "name": "5",
+          "layout": "RightMainVerticalStack"
+        },
+        {
+          "name": "6",
+          "layout": "RightMainVerticalStack"
+        },
+        {
+          "name": "7",
+          "layout": "RightMainVerticalStack"
+        }    
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "1",
+          "layout": "Rows"
+        },
+        {
+          "name": "2",
+          "layout": "Rows"
+        },
+        {
+          "name": "3",
+          "layout": "Rows"
+        },
+        {
+          "name": "4",
+          "layout": "Rows"
+        },
+        {
+          "name": "5",
+          "layout": "Rows"
+        },
+        {
+          "name": "6",
+          "layout": "Rows"
+        },
+        {
+          "name": "7",
+          "layout": "Rows"
+        }
+      ]
+    }
+  ]
+}
