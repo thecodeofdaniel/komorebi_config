@@ -28,8 +28,8 @@
     "1": "AUS2707-5&2658466e&0&UID265"
   },
   "bar_configurations": [
-    "$Env:USERPROFILE/komorebi.bar.main.json",
-    "$Env:USERPROFILE/komorebi.bar.side.json"
+    "$Env:USERPROFILE/komorebi.bar.1.json",
+    "$Env:USERPROFILE/komorebi.bar.2.json"
   ],
   "monitors": [
     {
